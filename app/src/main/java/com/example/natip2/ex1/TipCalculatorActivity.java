@@ -18,14 +18,14 @@ public class TipCalculatorActivity extends ActionBarActivity {
     private View.OnClickListener calcListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            EditText input = (EditText)findViewById(R.id.edtBillAmount);
-            double result = Double.parseDouble(input.getText().toString())*0.12;
-            boolean isRound = ((CheckBox)findViewById(R.id.chkRound)).isChecked();
-            if(isRound){
+            EditText input = (EditText) findViewById(R.id.edtBillAmount);
+            double result = Double.parseDouble(input.getText().toString()) * 0.12;
+            boolean isRound = ((CheckBox) findViewById(R.id.chkRound)).isChecked();
+            if (isRound) {
                 result = Math.round(result);
             }
-            TextView tipResultText = (TextView)findViewById(R.id.txtTipResult);
-            tipResultText.setText("Tip: $"+String.format("%."+(isRound?0:2)+"f",result ));
+            TextView tipResultText = (TextView) findViewById(R.id.txtTipResult);
+            tipResultText.setText("Tip: $" + String.format("%." + (isRound ? 0 : 2) + "f", result));
         }
     };
 
@@ -33,7 +33,7 @@ public class TipCalculatorActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
-        Button calc = (Button)findViewById(R.id.btnCalculate);
+        Button calc = (Button) findViewById(R.id.btnCalculate);
         calc.setOnClickListener(calcListener);
     }
 
